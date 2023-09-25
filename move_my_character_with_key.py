@@ -33,12 +33,17 @@ def draw_charater():
     global x, y
     if dir == 6:
         character.clip_draw(frame * 124, 126 * 1, 124, 126, x, y)
+        x += 10
     elif dir == 8:
         character.clip_draw(frame * 124, 126 * 0, 124, 126, x, y)
+        y += 10
     elif dir == 4:
         character.clip_draw(frame * 124, 126 * 2, 124, 126, x, y)
+        x -= 10
     elif dir == 2:
         character.clip_draw(frame * 124, 126 * 3, 124, 126, x, y)
+        y -= 10
+
 
 running = True
 frame = 0
