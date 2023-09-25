@@ -6,6 +6,7 @@ open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
 
 character = load_image('charater.png')
+#너비 124, 높이 126
 
 def handle_events():
     global running, x, y
@@ -17,6 +18,8 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
+def draw_charater():
+    pass
 
 running = True
 frame = 0
@@ -26,7 +29,7 @@ x, y = TUK_WIDTH // 2 , TUK_HEIGHT // 2
 while running:
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    #캐릭터 그리기
+    draw_charater()
     update_canvas()
     handle_events()
     frame = (frame + 1) % 4
