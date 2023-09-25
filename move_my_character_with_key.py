@@ -9,22 +9,35 @@ character = load_image('charater.png')
 #너비 124, 높이 126
 
 def handle_events():
-    global running, x, y
+    global running, x, y, dir
 
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             running = False
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            running = False
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_RIGHT:
+                dir = 6
+            elif event.key == SDLK_LEFT:
+                dir = 4
+            elif event.key == SDLK_UP:
+                dir = 8
+            elif event.key == SDLK_DOWN:
+                dir = 2
+            elif event.key == SDLK_ESCAPE:
+                running = False
+        elif event.type == SDL_KEYUP:
+                dir = 0
 
 def draw_charater():
-    pass
+    global x, y
+    if dir == 6:
+        character.clip_draw(frame * 124, 126, 124, 126, x, y)
 
 running = True
 frame = 0
 x, y = TUK_WIDTH // 2 , TUK_HEIGHT // 2
-
+dir = 0
 
 while running:
     clear_canvas()
