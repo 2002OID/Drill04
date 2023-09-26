@@ -48,7 +48,7 @@ def draw_charater():
         if y > 0:
             y -= 10
     elif dir == 0:
-        character.clip_draw(0, 126 * 3, 124, 126, x, y)
+        character.clip_draw(0, 126 * frame, 124, 126, x, y)
 
 running = True
 frame = 0
